@@ -52,7 +52,7 @@ public class LicenseException extends ModelObject
      * 
      * @return list
      */
-    public List<String> getSeeAlsoList() {
+    public Collection getSeeAlsoList() {
         return seeAlsoList;
     }
 

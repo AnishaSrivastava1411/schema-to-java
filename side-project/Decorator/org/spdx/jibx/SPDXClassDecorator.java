@@ -51,14 +51,18 @@ public class SPDXClassDecorator extends NameMatchDecoratorBase implements ClassD
 		
 		AST ast = ClassHolderHelper.getAST((ClassHolder)holder); 
 		Type l = ast.newSimpleType(ast.newName("List"));
-	    
 	    for(FieldDeclaration fd: holder.getFields())
     	{
 	    	Type type = ast.newSimpleType(ast.newName("Collection"));
-			if(fd.getType().isParameterizedType()){
+			if(fd.getType().isParameterizedType())
 	 			fd.setType(type);
-	 		}
-	   	}
+		}
+    	for(MethodDeclaration md: holder.getMethods())
+    	{
+    		Type type = ast.newSimpleType(ast.newName("Collection"));
+			if(md.getReturnType2().isParameterizedType())
+				md.setReturnType2(type);
+    	}
     }
 	
 	public void start(IClassHolder holder) {

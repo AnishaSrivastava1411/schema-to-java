@@ -36,7 +36,7 @@ public class File extends SpdxItem
      * 
      * @return list
      */
-    public List<Project> getArtifactOfList() {
+    public Collection getArtifactOfList() {
         return artifactOfList;
     }
 
@@ -54,7 +54,7 @@ public class File extends SpdxItem
      * 
      * @return list
      */
-    public List<FileType> getFileTypeList() {
+    public Collection getFileTypeList() {
         return fileTypeList;
     }
 
@@ -90,7 +90,7 @@ public class File extends SpdxItem
      * 
      * @return list
      */
-    public List<String> getFileContributorList() {
+    public Collection getFileContributorList() {
         return fileContributorList;
     }
 
@@ -108,7 +108,7 @@ public class File extends SpdxItem
      * 
      * @return list
      */
-    public List<SimpleLicensingInfo> getLicenseInfoInFileList() {
+    public Collection getLicenseInfoInFileList() {
         return licenseInfoInFileList;
     }
 
@@ -126,7 +126,7 @@ public class File extends SpdxItem
      * 
      * @return list
      */
-    public List<Checksum> getChecksumList() {
+    public Collection getChecksumList() {
         return checksumList;
     }
 
@@ -162,7 +162,7 @@ public class File extends SpdxItem
      * 
      * @return list
      */
-    public List<File> getFileDependencyList() {
+    public Collection getFileDependencyList() {
         return fileDependencyList;
     }
 

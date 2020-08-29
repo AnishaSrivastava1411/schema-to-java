@@ -49,7 +49,7 @@ public class PackageVerificationCode extends ModelObject
      * 
      * @return list
      */
-    public List<String> getPackageVerificationCodeExcludedFileList() {
+    public Collection getPackageVerificationCodeExcludedFileList() {
         return packageVerificationCodeExcludedFileList;
     }
 

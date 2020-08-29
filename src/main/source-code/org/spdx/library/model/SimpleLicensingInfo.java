@@ -32,7 +32,7 @@ public class SimpleLicensingInfo extends AnyLicenseInfo
      * 
      * @return list
      */
-    public List<String> getSeeAlsoList() {
+    public Collection getSeeAlsoList() {
         return seeAlsoList;
     }
 

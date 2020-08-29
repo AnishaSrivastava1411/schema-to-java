@@ -31,7 +31,7 @@ public class Snippet extends SpdxItem
      * 
      * @return list
      */
-    public List<Pointer> getRangeList() {
+    public Collection getRangeList() {
         return rangeList;
     }
 
@@ -67,7 +67,7 @@ public class Snippet extends SpdxItem
      * 
      * @return list
      */
-    public List<SimpleLicensingInfo> getLicenseInfoInSnippetList() {
+    public Collection getLicenseInfoInSnippetList() {
         return licenseInfoInSnippetList;
     }
 

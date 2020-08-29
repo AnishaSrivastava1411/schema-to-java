@@ -69,7 +69,7 @@ public class CreationInfo extends ModelObject
      * 
      * @return list
      */
-    public List<String> getCreatorList() {
+    public Collection getCreatorList() {
         return creatorList;
     }
 

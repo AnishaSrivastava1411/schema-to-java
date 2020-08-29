@@ -97,7 +97,7 @@ public class _Package extends SpdxItem
      * 
      * @return list
      */
-    public List<Checksum> getChecksumList() {
+    public Collection getChecksumList() {
         return checksumList;
     }
 
@@ -151,7 +151,7 @@ public class _Package extends SpdxItem
      * 
      * @return list
      */
-    public List<ExternalRef> getExternalRefList() {
+    public Collection getExternalRefList() {
         return externalRefList;
     }
 
@@ -169,7 +169,7 @@ public class _Package extends SpdxItem
      * 
      * @return list
      */
-    public List<File> getHasFileList() {
+    public Collection getHasFileList() {
         return hasFileList;
     }
 

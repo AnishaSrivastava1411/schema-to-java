@@ -69,7 +69,7 @@ public class SpdxElement extends ModelObject
      * 
      * @return list
      */
-    public List<Relationship> getRelationshipList() {
+    public Collection getRelationshipList() {
         return relationshipList;
     }
 
@@ -87,7 +87,7 @@ public class SpdxElement extends ModelObject
      * 
      * @return list
      */
-    public List<Annotation> getAnnotationList() {
+    public Collection getAnnotationList() {
         return annotationList;
     }
 

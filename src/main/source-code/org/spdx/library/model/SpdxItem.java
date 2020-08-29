@@ -50,7 +50,7 @@ public class SpdxItem extends SpdxElement
      * 
      * @return list
      */
-    public List<String> getAttributionTextList() {
+    public Collection getAttributionTextList() {
         return attributionTextList;
     }
 
@@ -86,7 +86,7 @@ public class SpdxItem extends SpdxElement
      * 
      * @return list
      */
-    public List<SimpleLicensingInfo> getLicenseInfoFromFileList() {
+    public Collection getLicenseInfoFromFileList() {
         return licenseInfoFromFileList;
     }
 

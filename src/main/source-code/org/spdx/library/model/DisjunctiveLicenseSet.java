@@ -29,7 +29,7 @@ public class DisjunctiveLicenseSet extends AnyLicenseInfo
      * 
      * @return list
      */
-    public List<AnyLicenseInfo> getMemberList() {
+    public Collection getMemberList() {
         return memberList;
     }
 

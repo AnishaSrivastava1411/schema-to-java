@@ -35,7 +35,7 @@ public class SpdxDocument extends SpdxElement
      * 
      * @return list
      */
-    public List<Review> getReviewedList() {
+    public Collection getReviewedList() {
         return reviewedList;
     }
 
@@ -53,7 +53,7 @@ public class SpdxDocument extends SpdxElement
      * 
      * @return list
      */
-    public List<ExtractedLicensingInfo> getHasExtractedLicensingInfoList() {
+    public Collection getHasExtractedLicensingInfoList() {
         return hasExtractedLicensingInfoList;
     }
 
@@ -108,7 +108,7 @@ public class SpdxDocument extends SpdxElement
      * 
      * @return list
      */
-    public List<_Package> getDescribesPackageList() {
+    public Collection getDescribesPackageList() {
         return describesPackageList;
     }
 
@@ -126,7 +126,7 @@ public class SpdxDocument extends SpdxElement
      * 
      * @return list
      */
-    public List<ExternalDocumentRef> getExternalDocumentRefList() {
+    public Collection getExternalDocumentRefList() {
         return externalDocumentRefList;
     }
 
