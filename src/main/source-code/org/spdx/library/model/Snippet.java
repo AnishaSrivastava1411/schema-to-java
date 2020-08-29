@@ -9,9 +9,9 @@ import java.util.List;
  */
 public class Snippet extends SpdxItem
 {
-    private List<Pointer> rangeList = new ArrayList<Pointer>();
+    private List<Pointer> rangeList = new Collection<Pointer>();
     private File snippetFromFile;
-    private List<SimpleLicensingInfo> licenseInfoInSnippetList = new ArrayList<SimpleLicensingInfo>();
+    private List<SimpleLicensingInfo> licenseInfoInSnippetList = new Collection<SimpleLicensingInfo>();
 
     Snippet(String Id) {
         super(Id);

@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class SimpleLicensingInfo extends AnyLicenseInfo
 {
-    private List<String> seeAlsoList = new ArrayList<String>();
+    private Collection seeAlsoList = new Collection<String>();
     private String name;
     private String comment;
     private String licenseId;

@@ -9,7 +9,7 @@
     <structure ordered="false">
       <value style="element" name="comment" get-method="getComment" set-method="setComment" usage="optional"/>
       <value style="element" name="created" get-method="getCreated" set-method="setCreated"/>
-      <collection get-method="getCreatorList" set-method="setCreatorList" create-type="java.util.ArrayList">
+      <collection get-method="getCreatorList" set-method="setCreatorList" create-type="Collection">
         <value style="element" name="creator" type="java.lang.String"/>
       </collection>
       <value style="element" name="licenseListVersion" get-method="getLicenseListVersion" set-method="setLicenseListVersion" usage="optional"/>
@@ -59,11 +59,11 @@
     <structure map-as="ns1:SpdxElement"/>
     <structure ordered="false">
       <value style="element" name="licenseComments" get-method="getLicenseComments" set-method="setLicenseComments" usage="optional"/>
-      <collection get-method="getAttributionTextList" set-method="setAttributionTextList" usage="optional" create-type="java.util.ArrayList">
+      <collection get-method="getAttributionTextList" set-method="setAttributionTextList" usage="optional" create-type="Collection">
         <value style="element" name="attributionText" type="java.lang.String"/>
       </collection>
       <value style="element" name="copyrightText" get-method="getCopyrightText" set-method="setCopyrightText"/>
-      <collection get-method="getLicenseInfoFromFileList" set-method="setLicenseInfoFromFileList" usage="optional" create-type="java.util.ArrayList">
+      <collection get-method="getLicenseInfoFromFileList" set-method="setLicenseInfoFromFileList" usage="optional" create-type="Collection">
         <structure map-as="ns1:SimpleLicensingInfo" name="licenseInfoFromFiles"/>
       </collection>
     </structure>
@@ -81,7 +81,7 @@
   </mapping>
   <mapping abstract="true" type-name="ns1:ConjunctiveLicenseSet" class="org.spdx.library.model.ConjunctiveLicenseSet">
     <structure map-as="ns1:AnyLicenseInfo"/>
-    <collection get-method="getMemberList" set-method="setMemberList" create-type="java.util.ArrayList">
+    <collection get-method="getMemberList" set-method="setMemberList" create-type="Collection">
       <structure map-as="ns1:AnyLicenseInfo" name="member"/>
     </collection>
   </mapping>
@@ -97,7 +97,7 @@
   <mapping abstract="true" type-name="ns1:PackageVerificationCode" class="org.spdx.library.model.PackageVerificationCode">
     <structure ordered="false">
       <value style="element" name="packageVerificationCodeValue" get-method="getPackageVerificationCodeValue" set-method="setPackageVerificationCodeValue"/>
-      <collection get-method="getPackageVerificationCodeExcludedFileList" set-method="setPackageVerificationCodeExcludedFileList" usage="optional" create-type="java.util.ArrayList">
+      <collection get-method="getPackageVerificationCodeExcludedFileList" set-method="setPackageVerificationCodeExcludedFileList" usage="optional" create-type="Collection">
         <value style="element" name="packageVerificationCodeExcludedFile" type="java.lang.String"/>
       </collection>
     </structure>
@@ -119,18 +119,18 @@
   <mapping abstract="true" type-name="ns1:SpdxDocument" class="org.spdx.library.model.SpdxDocument">
     <structure map-as="ns1:SpdxElement"/>
     <structure ordered="false">
-      <collection get-method="getReviewedList" set-method="setReviewedList" usage="optional" create-type="java.util.ArrayList">
+      <collection get-method="getReviewedList" set-method="setReviewedList" usage="optional" create-type="Collection">
         <structure map-as="ns1:Review" name="reviewed"/>
       </collection>
-      <collection get-method="getHasExtractedLicensingInfoList" set-method="setHasExtractedLicensingInfoList" usage="optional" create-type="java.util.ArrayList">
+      <collection get-method="getHasExtractedLicensingInfoList" set-method="setHasExtractedLicensingInfoList" usage="optional" create-type="Collection">
         <structure map-as="ns1:ExtractedLicensingInfo" name="hasExtractedLicensingInfo"/>
       </collection>
       <value style="element" name="specVersion" get-method="getSpecVersion" set-method="setSpecVersion"/>
       <structure map-as="ns1:AnyLicenseInfo" get-method="getDataLicense" set-method="setDataLicense" name="dataLicense"/>
-      <collection get-method="getDescribesPackageList" set-method="setDescribesPackageList" usage="optional" create-type="java.util.ArrayList">
+      <collection get-method="getDescribesPackageList" set-method="setDescribesPackageList" usage="optional" create-type="Collection">
         <structure map-as="ns1:Package" name="describesPackage"/>
       </collection>
-      <collection get-method="getExternalDocumentRefList" set-method="setExternalDocumentRefList" usage="optional" create-type="java.util.ArrayList">
+      <collection get-method="getExternalDocumentRefList" set-method="setExternalDocumentRefList" usage="optional" create-type="Collection">
         <structure map-as="ns1:ExternalDocumentRef" name="externalDocumentRef"/>
       </collection>
       <structure map-as="ns1:CreationInfo" get-method="getCreationInfo" set-method="setCreationInfo" name="creationInfo"/>
@@ -142,24 +142,24 @@
   <mapping abstract="true" type-name="ns1:File" class="org.spdx.library.model.File">
     <structure map-as="ns1:SpdxItem"/>
     <structure ordered="false">
-      <collection get-method="getArtifactOfList" set-method="setArtifactOfList" usage="optional" create-type="java.util.ArrayList">
+      <collection get-method="getArtifactOfList" set-method="setArtifactOfList" usage="optional" create-type="Collection">
         <structure map-as="ns1:Project" name="artifactOf"/>
       </collection>
-      <collection get-method="getFileTypeList" set-method="setFileTypeList" usage="optional" create-type="java.util.ArrayList">
+      <collection get-method="getFileTypeList" set-method="setFileTypeList" usage="optional" create-type="Collection">
         <value style="element" name="fileType" type="org.spdx.library.model.FileType" format="ns1:FileType"/>
       </collection>
       <value style="element" name="fileName" get-method="getFileName" set-method="setFileName"/>
-      <collection get-method="getFileContributorList" set-method="setFileContributorList" usage="optional" create-type="java.util.ArrayList">
+      <collection get-method="getFileContributorList" set-method="setFileContributorList" usage="optional" create-type="Collection">
         <value style="element" name="fileContributor" type="java.lang.String"/>
       </collection>
-      <collection get-method="getLicenseInfoInFileList" set-method="setLicenseInfoInFileList" create-type="java.util.ArrayList">
+      <collection get-method="getLicenseInfoInFileList" set-method="setLicenseInfoInFileList" create-type="Collection">
         <structure map-as="ns1:SimpleLicensingInfo" name="licenseInfoInFile"/>
       </collection>
-      <collection get-method="getChecksumList" set-method="setChecksumList" create-type="java.util.ArrayList">
+      <collection get-method="getChecksumList" set-method="setChecksumList" create-type="Collection">
         <structure map-as="ns1:Checksum" name="checksum"/>
       </collection>
       <value style="element" name="noticeText" get-method="getNoticeText" set-method="setNoticeText" usage="optional"/>
-      <collection get-method="getFileDependencyList" set-method="setFileDependencyList" usage="optional" create-type="java.util.ArrayList">
+      <collection get-method="getFileDependencyList" set-method="setFileDependencyList" usage="optional" create-type="Collection">
         <structure map-as="ns1:File" name="fileDependency"/>
       </collection>
     </structure>
@@ -167,7 +167,7 @@
   <mapping abstract="true" type-name="ns1:LicenseException" class="org.spdx.library.model.LicenseException">
     <structure ordered="false">
       <value style="element" name="example" get-method="getExample" set-method="setExample" usage="optional"/>
-      <collection get-method="getSeeAlsoList" set-method="setSeeAlsoList" usage="optional" create-type="java.util.ArrayList">
+      <collection get-method="getSeeAlsoList" set-method="setSeeAlsoList" usage="optional" create-type="Collection">
         <value style="element" name="seeAlso" type="java.lang.String"/>
       </collection>
       <value style="element" name="name" get-method="getName" set-method="setName"/>
@@ -187,10 +187,10 @@
     <structure ordered="false">
       <value style="element" name="name" get-method="getName" set-method="setName"/>
       <value style="element" name="comment" get-method="getComment" set-method="setComment" usage="optional"/>
-      <collection get-method="getRelationshipList" set-method="setRelationshipList" usage="optional" create-type="java.util.ArrayList">
+      <collection get-method="getRelationshipList" set-method="setRelationshipList" usage="optional" create-type="Collection">
         <structure map-as="ns1:Relationship" name="relationship"/>
       </collection>
-      <collection get-method="getAnnotationList" set-method="setAnnotationList" usage="optional" create-type="java.util.ArrayList">
+      <collection get-method="getAnnotationList" set-method="setAnnotationList" usage="optional" create-type="Collection">
         <structure map-as="ns1:Annotation" name="annotation"/>
       </collection>
       <value style="element" name="SPDXID" get-method="getSPDXID" set-method="setSPDXID"/>
@@ -213,7 +213,7 @@
   <mapping abstract="true" type-name="ns1:Pointer" class="org.spdx.library.model.Pointer"/>
   <mapping abstract="true" type-name="ns1:DisjunctiveLicenseSet" class="org.spdx.library.model.DisjunctiveLicenseSet">
     <structure map-as="ns1:AnyLicenseInfo"/>
-    <collection get-method="getMemberList" set-method="setMemberList" create-type="java.util.ArrayList">
+    <collection get-method="getMemberList" set-method="setMemberList" create-type="Collection">
       <structure map-as="ns1:AnyLicenseInfo" name="member"/>
     </collection>
   </mapping>
@@ -227,7 +227,7 @@
   <mapping abstract="true" type-name="ns1:SimpleLicensingInfo" class="org.spdx.library.model.SimpleLicensingInfo">
     <structure map-as="ns1:AnyLicenseInfo"/>
     <structure ordered="false">
-      <collection get-method="getSeeAlsoList" set-method="setSeeAlsoList" usage="optional" create-type="java.util.ArrayList">
+      <collection get-method="getSeeAlsoList" set-method="setSeeAlsoList" usage="optional" create-type="Collection">
         <value style="element" name="seeAlso" type="java.lang.String"/>
       </collection>
       <value style="element" name="name" get-method="getName" set-method="setName"/>
@@ -238,11 +238,11 @@
   <mapping abstract="true" type-name="ns1:Snippet" class="org.spdx.library.model.Snippet">
     <structure map-as="ns1:SpdxItem"/>
     <structure ordered="false">
-      <collection get-method="getRangeList" set-method="setRangeList" create-type="java.util.ArrayList">
+      <collection get-method="getRangeList" set-method="setRangeList" create-type="Collection">
         <structure map-as="ns1:Pointer" name="range"/>
       </collection>
       <structure map-as="ns1:File" get-method="getSnippetFromFile" set-method="setSnippetFromFile" name="snippetFromFile"/>
-      <collection get-method="getLicenseInfoInSnippetList" set-method="setLicenseInfoInSnippetList" usage="optional" create-type="java.util.ArrayList">
+      <collection get-method="getLicenseInfoInSnippetList" set-method="setLicenseInfoInSnippetList" usage="optional" create-type="Collection">
         <structure map-as="ns1:SimpleLicensingInfo" name="licenseInfoInSnippet"/>
       </collection>
     </structure>
@@ -253,15 +253,15 @@
       <value style="element" name="homepage" get-method="getHomepage" set-method="setHomepage" usage="optional"/>
       <value style="element" name="supplier" get-method="getSupplier" set-method="setSupplier" usage="optional"/>
       <structure map-as="ns1:PackageVerificationCode" get-method="getPackageVerificationCode" set-method="setPackageVerificationCode" usage="optional" name="packageVerificationCode"/>
-      <collection get-method="getChecksumList" set-method="setChecksumList" usage="optional" create-type="java.util.ArrayList">
+      <collection get-method="getChecksumList" set-method="setChecksumList" usage="optional" create-type="Collection">
         <structure map-as="ns1:Checksum" name="checksum"/>
       </collection>
       <value style="element" name="downloadLocation" get-method="getDownloadLocation" set-method="setDownloadLocation"/>
       <value style="element" name="filesAnalyzed" get-method="getFilesAnalyzed" set-method="setFilesAnalyzed" usage="optional"/>
-      <collection get-method="getExternalRefList" set-method="setExternalRefList" usage="optional" create-type="java.util.ArrayList">
+      <collection get-method="getExternalRefList" set-method="setExternalRefList" usage="optional" create-type="Collection">
         <structure map-as="ns1:ExternalRef" name="externalRef"/>
       </collection>
-      <collection get-method="getHasFileList" set-method="setHasFileList" usage="optional" create-type="java.util.ArrayList">
+      <collection get-method="getHasFileList" set-method="setHasFileList" usage="optional" create-type="Collection">
         <structure map-as="ns1:File" name="hasFile"/>
       </collection>
       <value style="element" name="summary" get-method="getSummary" set-method="setSummary" usage="optional"/>

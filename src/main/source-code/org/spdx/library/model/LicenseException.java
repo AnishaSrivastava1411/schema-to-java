@@ -10,7 +10,7 @@ import java.util.List;
 public class LicenseException extends ModelObject
 {
     private String example;
-    private List<String> seeAlsoList = new ArrayList<String>();
+    private List<String> seeAlsoList = new Collection<String>();
     private String name;
     private String licenseExceptionId;
     private String comment;

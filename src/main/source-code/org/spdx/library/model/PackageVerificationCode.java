@@ -10,7 +10,7 @@ import java.util.List;
 public class PackageVerificationCode extends ModelObject
 {
     private byte[] packageVerificationCodeValue;
-    private List<String> packageVerificationCodeExcludedFileList = new ArrayList<String>();
+    private List<String> packageVerificationCodeExcludedFileList = new Collection<String>();
 
     PackageVerificationCode(String Id) {
         super(Id);

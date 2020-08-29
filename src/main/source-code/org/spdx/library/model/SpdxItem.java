@@ -10,9 +10,9 @@ import java.util.List;
 public class SpdxItem extends SpdxElement
 {
     private String licenseComments;
-    private List<String> attributionTextList = new ArrayList<String>();
+    private List<String> attributionTextList = new Collection<String>();
     private String copyrightText;
-    private List<SimpleLicensingInfo> licenseInfoFromFileList = new ArrayList<SimpleLicensingInfo>();
+    private List<SimpleLicensingInfo> licenseInfoFromFileList = new Collection<SimpleLicensingInfo>();
 
     SpdxItem(String Id) {
         super(Id);
