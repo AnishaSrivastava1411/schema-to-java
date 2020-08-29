@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class DisjunctiveLicenseSet extends AnyLicenseInfo
 {
-    private List<AnyLicenseInfo> memberList = new Collection<AnyLicenseInfo>();
+    private Collection memberList = new Collection<AnyLicenseInfo>();
 
     DisjunctiveLicenseSet(String Id) {
         super(Id);

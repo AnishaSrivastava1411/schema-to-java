@@ -11,8 +11,8 @@ public class SpdxElement extends ModelObject
 {
     private String name;
     private String comment;
-    private List<Relationship> relationshipList = new Collection<Relationship>();
-    private List<Annotation> annotationList = new Collection<Annotation>();
+    private Collection relationshipList = new Collection<Relationship>();
+    private Collection annotationList = new Collection<Annotation>();
     private String SPDXID;
 
     SpdxElement(String Id) {

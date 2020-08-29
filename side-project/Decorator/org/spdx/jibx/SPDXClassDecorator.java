@@ -9,6 +9,7 @@ import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.MethodInvocation;
 import org.eclipse.jdt.core.dom.Modifier;
 import org.eclipse.jdt.core.dom.Name;
+import org.eclipse.jdt.core.dom.ParameterizedType;
 import org.eclipse.jdt.core.dom.SimpleName;
 import org.eclipse.jdt.core.dom.Type;
 import org.eclipse.jdt.core.dom.ReturnStatement;
@@ -26,6 +27,7 @@ import org.jibx.schema.codegen.extend.ClassDecorator;
 import org.jibx.schema.codegen.extend.NameMatchDecoratorBase;
 
 public class SPDXClassDecorator extends NameMatchDecoratorBase implements ClassDecorator {
+	
 	String m_listClass; 
 	
 	private String m_baseClass;
@@ -44,7 +46,20 @@ public class SPDXClassDecorator extends NameMatchDecoratorBase implements ClassD
 		m_Interface = name;
 	}
 	
-	public void finish(ElementBase binding, IClassHolder holder) {}
+	
+	public void finish(ElementBase binding, IClassHolder holder) { 
+		
+		AST ast = ClassHolderHelper.getAST((ClassHolder)holder); 
+		Type l = ast.newSimpleType(ast.newName("List"));
+	    
+	    for(FieldDeclaration fd: holder.getFields())
+    	{
+	    	Type type = ast.newSimpleType(ast.newName("Collection"));
+			if(fd.getType().isParameterizedType()){
+	 			fd.setType(type);
+	 		}
+	   	}
+    }
 	
 	public void start(IClassHolder holder) {
 		AST ast = ClassHolderHelper.getAST((ClassHolder)holder);
