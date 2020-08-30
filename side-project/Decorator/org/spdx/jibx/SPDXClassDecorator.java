@@ -1,6 +1,7 @@
 ackage org.spdx.jibx;
 
 import org.eclipse.jdt.core.dom.AST;
+import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.Block;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.InfixExpression;
@@ -48,22 +49,34 @@ public class SPDXClassDecorator extends NameMatchDecoratorBase implements ClassD
 	
 	
 	public void finish(ElementBase binding, IClassHolder holder) { 
-		
 		AST ast = ClassHolderHelper.getAST((ClassHolder)holder); 
-		Type l = ast.newSimpleType(ast.newName("List"));
-	    for(FieldDeclaration fd: holder.getFields())
-    	{
-	    	Type type = ast.newSimpleType(ast.newName("Collection"));
-			if(fd.getType().isParameterizedType())
-	 			fd.setType(type);
-		}
+		Type oldType = ast.newSimpleType(ast.newName("List"));
+		for(FieldDeclaration fd: holder.getFields())
+    	{   
+				Type newType = ast.newSimpleType(ast.newName(m_listClass));
+				if (fd.getType().isParameterizedType()) {
+				    ParameterizedType newParameterizedType = ast.newParameterizedType(newType);
+				    ParameterizedType old = ast.newParameterizedType(oldType);
+					   
+				    for (Object type : old.typeArguments()) {
+				       ((ASTNode) type).delete();
+				         newParameterizedType.typeArguments().add(type);
+				    }
+				    fd.setType(newParameterizedType);
+				}
+		
+    	}
+		   	
     	for(MethodDeclaration md: holder.getMethods())
     	{
-    		Type type = ast.newSimpleType(ast.newName("Collection"));
-			if(md.getReturnType2().isParameterizedType())
-				md.setReturnType2(type);
-    	}
-    }
+    		Type type = ast.newSimpleType(ast.newName(m_listClass));
+    	    if(md.getReturnType2().isParameterizedType()) 
+    	  			md.setReturnType2(type);
+	 	}
+	 
+	}
+	
+
 	
 	public void start(IClassHolder holder) {
 		AST ast = ClassHolderHelper.getAST((ClassHolder)holder);
