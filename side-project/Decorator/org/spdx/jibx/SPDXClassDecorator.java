@@ -53,59 +53,54 @@ public class SPDXClassDecorator extends NameMatchDecoratorBase implements ClassD
 	
 	
 	public void finish(ElementBase binding, IClassHolder holder ) { 
-		
 		AST ast = ClassHolderHelper.getAST((ClassHolder)holder); 
 		Type oldType = ast.newSimpleType(ast.newName("List"));
-		for(FieldDeclaration fd: holder.getFields())
-    	{   
+		for(FieldDeclaration fd: holder.getFields()) {  
 			Type newType = ast.newSimpleType(ast.newName("Collection"));
-				if (fd.getType().isParameterizedType() ) {
-					ParameterizedType newParameterizedType = ast.newParameterizedType(newType);
-				    ParameterizedType old = (ParameterizedType) fd.getType();
-				    List<ASTNode> typeArgument = new ArrayList<>();
-			        for (Object type : old.typeArguments()) {
-				    	typeArgument.add(((ASTNode) type));
-			    	}
-				    for (ASTNode type : typeArgument) {
-				    	   type.delete();
-				      	   newParameterizedType.typeArguments().add(type);
-				    }
-				    for (Object fragment:fd.fragments()) {
-				    	if (fragment instanceof VariableDeclarationFragment) {
-				    		VariableDeclarationFragment vFragment = (VariableDeclarationFragment)fragment;
-				    		vFragment.setInitializer(null);
-				    	}
-				    }
-				    fd.setType(newParameterizedType);
+			if (fd.getType().isParameterizedType() ) {
+				ParameterizedType newParameterizedType = ast.newParameterizedType(newType);
+				ParameterizedType old = (ParameterizedType) fd.getType();
+				List<ASTNode> typeArgument = new ArrayList<>();
+				for (Object type : old.typeArguments()) {
+					typeArgument.add(((ASTNode) type));
 				}
-    	}
-		
-		   	
-    	for(MethodDeclaration md: holder.getMethods())
-    	{
-    		Type newtype = ast.newSimpleType(ast.newName("Collection"));
-    	    	if(md.getReturnType2().isParameterizedType()) {
-    	    		ParameterizedType newParameterizedType = ast.newParameterizedType(newtype);
-    	    		ParameterizedType old = (ParameterizedType) md.getReturnType2();
-    	    		List<ASTNode> typeArgument = new ArrayList<>();
-    	    		for (Object obj : old.typeArguments()) {
-    	    			typeArgument.add(((ASTNode) obj));
-		    	    }
-    	    		for (ASTNode obj : typeArgument) {
-    	    			obj.delete();
-    	    			newParameterizedType.typeArguments().add(obj);
-    	    		}
-    	    		holder.addImport("java.util.Collection");
-    	    		md.setReturnType2(newParameterizedType);
-	    		}
-		 }
+				for (ASTNode type : typeArgument) {
+					type.delete();
+					newParameterizedType.typeArguments().add(type);
+				}
+				for (Object fragment:fd.fragments()) {
+					if (fragment instanceof VariableDeclarationFragment) {
+						VariableDeclarationFragment vFragment = (VariableDeclarationFragment)fragment;
+						vFragment.setInitializer(null);
+					}
+				}
+				fd.setType(newParameterizedType);
+			}
+		}
+		for(MethodDeclaration md: holder.getMethods()) {
+			Type newtype = ast.newSimpleType(ast.newName("Collection"));
+			if (md.getReturnType2().isParameterizedType()) {
+				ParameterizedType newParameterizedType = ast.newParameterizedType(newtype);
+				ParameterizedType old = (ParameterizedType) md.getReturnType2();
+				List<ASTNode> typeArgument = new ArrayList<>();
+				for (Object obj : old.typeArguments()) {    	    		
+					typeArgument.add(((ASTNode) obj));
+				}
+				for (ASTNode obj : typeArgument) {
+					obj.delete();
+					newParameterizedType.typeArguments().add(obj);
+				}
+				holder.addImport("java.util.Collection");
+				md.setReturnType2(newParameterizedType);
+			}
+		}
 	}
 
 
 	
 	public void start(IClassHolder holder) {
 		AST ast = ClassHolderHelper.getAST((ClassHolder)holder);
-		if(!(holder instanceof EnumerationClassHolder)) {    
+		if (!(holder instanceof EnumerationClassHolder)) {    
 			String constructorName=holder.getName();
 			String ParamNames1[]= {"Id"};
 			String ParamTypes1[]= {"String"};
