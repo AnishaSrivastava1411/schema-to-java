@@ -1,5 +1,5 @@
 # schema-to-java
-Generates Java classes from the SPDX Schema. Here we use the tool, JiBX to perform conversion.
+Generates Java classes from the SPDX Schema. Here we use the tool, [JiBX](http://jibx.sourceforge.net/index.html) to perform conversion.
 
 
 # Requirements
@@ -138,6 +138,20 @@ The classes are to be extended by ```ModelObject.java``` provided the generated 
  6. Compile the SPDXClassDecorator.java and run by <I>**```$ mvn install```**</I>.
  
  7. Switch to main-project and run(schema-to-java) by <I>**```$ mvn jibx:schema-codegen```**</I>.
+ 
+ 
+  **<h3>E. Change in List return Type</h3>**
+  This task includes conversion of list return Type to ```Collection```in field declarations, method declarations and formal parameters of method declarations.
+  
+  1. Added an attribute ```list-class = "Collection"``` in ```GlobalCustomization.xml```. This helped in implementing [setListImplementation(m_listClass)](https://github.com/jibx/core/blob/65f9dd8bda1e3125179b7226e9165f11d3274547/build/src/org/jibx/schema/codegen/extend/ListImplementationDecorator.java#L59) in SPDXClassDecorator.java.
+  
+  2. Created a new ```setListClass(String name)``` method which get initialized by ```list-class = "Collection"``` to "Collection".
+  
+  3. Added few more line of codes in finish() which brought changes in method declarations and field declarations.  For referrence view the code in ```side-project/Decorator/org/spdx/jibx/SPDXClassDecorator.finish```. 
+  
+  4. Compile the SPDXClassDecorator.java and run by <I>**```$ mvn install```**</I>.
+  
+  5. Switch to main-project and run(schema-to-java) by <I>**```$ mvn jibx:schema-codegen```**</I>.
  
  
  
