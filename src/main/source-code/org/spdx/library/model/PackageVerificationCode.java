@@ -2,6 +2,7 @@
 package org.spdx.library.model;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /** 
@@ -10,7 +11,7 @@ import java.util.List;
 public class PackageVerificationCode extends ModelObject
 {
     private byte[] packageVerificationCodeValue;
-    private Collection packageVerificationCodeExcludedFileList = new Collection<String>();
+    private Collection<String> packageVerificationCodeExcludedFileList;
 
     PackageVerificationCode(String Id) {
         super(Id);
@@ -49,7 +50,7 @@ public class PackageVerificationCode extends ModelObject
      * 
      * @return list
      */
-    public Collection getPackageVerificationCodeExcludedFileList() {
+    public Collection<String> getPackageVerificationCodeExcludedFileList() {
         return packageVerificationCodeExcludedFileList;
     }
 

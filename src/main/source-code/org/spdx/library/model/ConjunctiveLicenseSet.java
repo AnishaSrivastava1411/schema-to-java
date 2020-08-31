@@ -2,6 +2,7 @@
 package org.spdx.library.model;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /** 
@@ -9,7 +10,7 @@ import java.util.List;
  */
 public class ConjunctiveLicenseSet extends AnyLicenseInfo
 {
-    private Collection memberList = new Collection<AnyLicenseInfo>();
+    private Collection<AnyLicenseInfo> memberList;
 
     ConjunctiveLicenseSet(String Id) {
         super(Id);
@@ -29,7 +30,7 @@ public class ConjunctiveLicenseSet extends AnyLicenseInfo
      * 
      * @return list
      */
-    public Collection getMemberList() {
+    public Collection<AnyLicenseInfo> getMemberList() {
         return memberList;
     }
 

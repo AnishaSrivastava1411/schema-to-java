@@ -2,6 +2,7 @@
 package org.spdx.library.model;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /** 
@@ -12,11 +13,11 @@ public class _Package extends SpdxItem
     private String homepage;
     private String supplier;
     private PackageVerificationCode packageVerificationCode;
-    private Collection checksumList = new Collection<Checksum>();
+    private Collection<Checksum> checksumList;
     private String downloadLocation;
     private Boolean filesAnalyzed;
-    private Collection externalRefList = new Collection<ExternalRef>();
-    private Collection hasFileList = new Collection<File>();
+    private Collection<ExternalRef> externalRefList;
+    private Collection<File> hasFileList;
     private String summary;
     private String originator;
     private String packageFileName;
@@ -97,7 +98,7 @@ public class _Package extends SpdxItem
      * 
      * @return list
      */
-    public Collection getChecksumList() {
+    public Collection<Checksum> getChecksumList() {
         return checksumList;
     }
 
@@ -151,7 +152,7 @@ public class _Package extends SpdxItem
      * 
      * @return list
      */
-    public Collection getExternalRefList() {
+    public Collection<ExternalRef> getExternalRefList() {
         return externalRefList;
     }
 
@@ -169,7 +170,7 @@ public class _Package extends SpdxItem
      * 
      * @return list
      */
-    public Collection getHasFileList() {
+    public Collection<File> getHasFileList() {
         return hasFileList;
     }
 

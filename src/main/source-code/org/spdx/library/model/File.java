@@ -2,6 +2,7 @@
 package org.spdx.library.model;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /** 
@@ -9,14 +10,14 @@ import java.util.List;
  */
 public class File extends SpdxItem
 {
-    private Collection artifactOfList = new Collection<Project>();
-    private Collection fileTypeList = new Collection<FileType>();
+    private Collection<Project> artifactOfList;
+    private Collection<FileType> fileTypeList;
     private String fileName;
-    private Collection fileContributorList = new Collection<String>();
-    private Collection licenseInfoInFileList = new Collection<SimpleLicensingInfo>();
-    private Collection checksumList = new Collection<Checksum>();
+    private Collection<String> fileContributorList;
+    private Collection<SimpleLicensingInfo> licenseInfoInFileList;
+    private Collection<Checksum> checksumList;
     private String noticeText;
-    private Collection fileDependencyList = new Collection<File>();
+    private Collection<File> fileDependencyList;
 
     File(String Id) {
         super(Id);
@@ -36,7 +37,7 @@ public class File extends SpdxItem
      * 
      * @return list
      */
-    public Collection getArtifactOfList() {
+    public Collection<Project> getArtifactOfList() {
         return artifactOfList;
     }
 
@@ -54,7 +55,7 @@ public class File extends SpdxItem
      * 
      * @return list
      */
-    public Collection getFileTypeList() {
+    public Collection<FileType> getFileTypeList() {
         return fileTypeList;
     }
 
@@ -90,7 +91,7 @@ public class File extends SpdxItem
      * 
      * @return list
      */
-    public Collection getFileContributorList() {
+    public Collection<String> getFileContributorList() {
         return fileContributorList;
     }
 
@@ -108,7 +109,7 @@ public class File extends SpdxItem
      * 
      * @return list
      */
-    public Collection getLicenseInfoInFileList() {
+    public Collection<SimpleLicensingInfo> getLicenseInfoInFileList() {
         return licenseInfoInFileList;
     }
 
@@ -126,7 +127,7 @@ public class File extends SpdxItem
      * 
      * @return list
      */
-    public Collection getChecksumList() {
+    public Collection<Checksum> getChecksumList() {
         return checksumList;
     }
 
@@ -162,7 +163,7 @@ public class File extends SpdxItem
      * 
      * @return list
      */
-    public Collection getFileDependencyList() {
+    public Collection<File> getFileDependencyList() {
         return fileDependencyList;
     }
 

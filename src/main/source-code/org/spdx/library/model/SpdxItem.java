@@ -2,6 +2,7 @@
 package org.spdx.library.model;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /** 
@@ -10,9 +11,9 @@ import java.util.List;
 public class SpdxItem extends SpdxElement
 {
     private String licenseComments;
-    private Collection attributionTextList = new Collection<String>();
+    private Collection<String> attributionTextList;
     private String copyrightText;
-    private Collection licenseInfoFromFileList = new Collection<SimpleLicensingInfo>();
+    private Collection<SimpleLicensingInfo> licenseInfoFromFileList;
 
     SpdxItem(String Id) {
         super(Id);
@@ -50,7 +51,7 @@ public class SpdxItem extends SpdxElement
      * 
      * @return list
      */
-    public Collection getAttributionTextList() {
+    public Collection<String> getAttributionTextList() {
         return attributionTextList;
     }
 
@@ -86,7 +87,7 @@ public class SpdxItem extends SpdxElement
      * 
      * @return list
      */
-    public Collection getLicenseInfoFromFileList() {
+    public Collection<SimpleLicensingInfo> getLicenseInfoFromFileList() {
         return licenseInfoFromFileList;
     }
 

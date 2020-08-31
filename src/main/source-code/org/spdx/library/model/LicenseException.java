@@ -2,6 +2,7 @@
 package org.spdx.library.model;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /** 
@@ -10,7 +11,7 @@ import java.util.List;
 public class LicenseException extends ModelObject
 {
     private String example;
-    private Collection seeAlsoList = new Collection<String>();
+    private Collection<String> seeAlsoList;
     private String name;
     private String licenseExceptionId;
     private String comment;
@@ -52,7 +53,7 @@ public class LicenseException extends ModelObject
      * 
      * @return list
      */
-    public Collection getSeeAlsoList() {
+    public Collection<String> getSeeAlsoList() {
         return seeAlsoList;
     }
 

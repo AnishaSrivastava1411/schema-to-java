@@ -2,6 +2,7 @@
 package org.spdx.library.model;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /** 
@@ -9,12 +10,12 @@ import java.util.List;
  */
 public class SpdxDocument extends SpdxElement
 {
-    private Collection reviewedList = new Collection<Review>();
-    private Collection hasExtractedLicensingInfoList = new Collection<ExtractedLicensingInfo>();
+    private Collection<Review> reviewedList;
+    private Collection<ExtractedLicensingInfo> hasExtractedLicensingInfoList;
     private String specVersion;
     private AnyLicenseInfo dataLicense;
-    private Collection describesPackageList = new Collection<_Package>();
-    private Collection externalDocumentRefList = new Collection<ExternalDocumentRef>();
+    private Collection<_Package> describesPackageList;
+    private Collection<ExternalDocumentRef> externalDocumentRefList;
     private CreationInfo creationInfo;
 
     SpdxDocument(String Id) {
@@ -35,7 +36,7 @@ public class SpdxDocument extends SpdxElement
      * 
      * @return list
      */
-    public Collection getReviewedList() {
+    public Collection<Review> getReviewedList() {
         return reviewedList;
     }
 
@@ -53,7 +54,7 @@ public class SpdxDocument extends SpdxElement
      * 
      * @return list
      */
-    public Collection getHasExtractedLicensingInfoList() {
+    public Collection<ExtractedLicensingInfo> getHasExtractedLicensingInfoList() {
         return hasExtractedLicensingInfoList;
     }
 
@@ -108,7 +109,7 @@ public class SpdxDocument extends SpdxElement
      * 
      * @return list
      */
-    public Collection getDescribesPackageList() {
+    public Collection<_Package> getDescribesPackageList() {
         return describesPackageList;
     }
 
@@ -126,7 +127,7 @@ public class SpdxDocument extends SpdxElement
      * 
      * @return list
      */
-    public Collection getExternalDocumentRefList() {
+    public Collection<ExternalDocumentRef> getExternalDocumentRefList() {
         return externalDocumentRefList;
     }
 

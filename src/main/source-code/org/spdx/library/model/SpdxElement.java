@@ -2,6 +2,7 @@
 package org.spdx.library.model;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /** 
@@ -11,8 +12,8 @@ public class SpdxElement extends ModelObject
 {
     private String name;
     private String comment;
-    private Collection relationshipList = new Collection<Relationship>();
-    private Collection annotationList = new Collection<Annotation>();
+    private Collection<Relationship> relationshipList;
+    private Collection<Annotation> annotationList;
     private String SPDXID;
 
     SpdxElement(String Id) {
@@ -69,7 +70,7 @@ public class SpdxElement extends ModelObject
      * 
      * @return list
      */
-    public Collection getRelationshipList() {
+    public Collection<Relationship> getRelationshipList() {
         return relationshipList;
     }
 
@@ -87,7 +88,7 @@ public class SpdxElement extends ModelObject
      * 
      * @return list
      */
-    public Collection getAnnotationList() {
+    public Collection<Annotation> getAnnotationList() {
         return annotationList;
     }
 

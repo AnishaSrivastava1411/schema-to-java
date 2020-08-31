@@ -2,6 +2,7 @@
 package org.spdx.library.model;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /** 
@@ -9,9 +10,9 @@ import java.util.List;
  */
 public class Snippet extends SpdxItem
 {
-    private Collection rangeList = new Collection<Pointer>();
+    private Collection<Pointer> rangeList;
     private File snippetFromFile;
-    private Collection licenseInfoInSnippetList = new Collection<SimpleLicensingInfo>();
+    private Collection<SimpleLicensingInfo> licenseInfoInSnippetList;
 
     Snippet(String Id) {
         super(Id);
@@ -31,7 +32,7 @@ public class Snippet extends SpdxItem
      * 
      * @return list
      */
-    public Collection getRangeList() {
+    public Collection<Pointer> getRangeList() {
         return rangeList;
     }
 
@@ -67,7 +68,7 @@ public class Snippet extends SpdxItem
      * 
      * @return list
      */
-    public Collection getLicenseInfoInSnippetList() {
+    public Collection<SimpleLicensingInfo> getLicenseInfoInSnippetList() {
         return licenseInfoInSnippetList;
     }
 
