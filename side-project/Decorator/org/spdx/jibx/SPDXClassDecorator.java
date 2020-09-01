@@ -68,12 +68,6 @@ public class SPDXClassDecorator extends NameMatchDecoratorBase implements ClassD
 					type.delete();
 					newParameterizedType.typeArguments().add(type);
 				}
-				for (Object fragment:fd.fragments()) {
-					if (fragment instanceof VariableDeclarationFragment) {
-						VariableDeclarationFragment vFragment = (VariableDeclarationFragment)fragment;
-						vFragment.setInitializer(null);
-					}
-				}
 				fd.setType(newParameterizedType);
 			}
 		}
