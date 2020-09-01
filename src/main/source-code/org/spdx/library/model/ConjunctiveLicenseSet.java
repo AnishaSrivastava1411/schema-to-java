@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class ConjunctiveLicenseSet extends AnyLicenseInfo
 {
-    private Collection<AnyLicenseInfo> memberList;
+    private Collection<AnyLicenseInfo> memberList = new Collection<AnyLicenseInfo>();
 
     ConjunctiveLicenseSet(String Id) {
         super(Id);

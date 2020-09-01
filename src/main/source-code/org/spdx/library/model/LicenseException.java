@@ -11,7 +11,7 @@ import java.util.List;
 public class LicenseException extends ModelObject
 {
     private String example;
-    private Collection<String> seeAlsoList;
+    private Collection<String> seeAlsoList = new Collection<String>();
     private String name;
     private String licenseExceptionId;
     private String comment;

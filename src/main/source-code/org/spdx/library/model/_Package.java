@@ -13,11 +13,11 @@ public class _Package extends SpdxItem
     private String homepage;
     private String supplier;
     private PackageVerificationCode packageVerificationCode;
-    private Collection<Checksum> checksumList;
+    private Collection<Checksum> checksumList = new Collection<Checksum>();
     private String downloadLocation;
     private Boolean filesAnalyzed;
-    private Collection<ExternalRef> externalRefList;
-    private Collection<File> hasFileList;
+    private Collection<ExternalRef> externalRefList = new Collection<ExternalRef>();
+    private Collection<File> hasFileList = new Collection<File>();
     private String summary;
     private String originator;
     private String packageFileName;

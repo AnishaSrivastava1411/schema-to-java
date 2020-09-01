@@ -10,12 +10,12 @@ import java.util.List;
  */
 public class SpdxDocument extends SpdxElement
 {
-    private Collection<Review> reviewedList;
-    private Collection<ExtractedLicensingInfo> hasExtractedLicensingInfoList;
+    private Collection<Review> reviewedList = new Collection<Review>();
+    private Collection<ExtractedLicensingInfo> hasExtractedLicensingInfoList = new Collection<ExtractedLicensingInfo>();
     private String specVersion;
     private AnyLicenseInfo dataLicense;
-    private Collection<_Package> describesPackageList;
-    private Collection<ExternalDocumentRef> externalDocumentRefList;
+    private Collection<_Package> describesPackageList = new Collection<_Package>();
+    private Collection<ExternalDocumentRef> externalDocumentRefList = new Collection<ExternalDocumentRef>();
     private CreationInfo creationInfo;
 
     SpdxDocument(String Id) {

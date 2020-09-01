@@ -13,7 +13,7 @@ public class CreationInfo extends ModelObject
 {
     private String comment;
     private Date created;
-    private Collection<String> creatorList;
+    private Collection<String> creatorList = new Collection<String>();
     private String licenseListVersion;
 
     CreationInfo(String Id) {

@@ -11,9 +11,9 @@ import java.util.List;
 public class SpdxItem extends SpdxElement
 {
     private String licenseComments;
-    private Collection<String> attributionTextList;
+    private Collection<String> attributionTextList = new Collection<String>();
     private String copyrightText;
-    private Collection<SimpleLicensingInfo> licenseInfoFromFileList;
+    private Collection<SimpleLicensingInfo> licenseInfoFromFileList = new Collection<SimpleLicensingInfo>();
 
     SpdxItem(String Id) {
         super(Id);

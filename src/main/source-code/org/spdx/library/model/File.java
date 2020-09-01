@@ -10,14 +10,14 @@ import java.util.List;
  */
 public class File extends SpdxItem
 {
-    private Collection<Project> artifactOfList;
-    private Collection<FileType> fileTypeList;
+    private Collection<Project> artifactOfList = new Collection<Project>();
+    private Collection<FileType> fileTypeList = new Collection<FileType>();
     private String fileName;
-    private Collection<String> fileContributorList;
-    private Collection<SimpleLicensingInfo> licenseInfoInFileList;
-    private Collection<Checksum> checksumList;
+    private Collection<String> fileContributorList = new Collection<String>();
+    private Collection<SimpleLicensingInfo> licenseInfoInFileList = new Collection<SimpleLicensingInfo>();
+    private Collection<Checksum> checksumList = new Collection<Checksum>();
     private String noticeText;
-    private Collection<File> fileDependencyList;
+    private Collection<File> fileDependencyList = new Collection<File>();
 
     File(String Id) {
         super(Id);
