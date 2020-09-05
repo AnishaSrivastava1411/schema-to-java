@@ -41,7 +41,7 @@ public class Snippet extends SpdxItem
      * 
      * @param list
      */
-    public void setRangeList(List<Pointer> list) {
+    public void setRangeList() {
         rangeList = list;
     }
 
@@ -77,7 +77,7 @@ public class Snippet extends SpdxItem
      * 
      * @param list
      */
-    public void setLicenseInfoInSnippetList(List<SimpleLicensingInfo> list) {
+    public void setLicenseInfoInSnippetList() {
         licenseInfoInSnippetList = list;
     }
 }

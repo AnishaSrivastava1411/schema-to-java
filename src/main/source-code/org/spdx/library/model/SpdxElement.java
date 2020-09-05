@@ -79,7 +79,7 @@ public class SpdxElement extends ModelObject
      * 
      * @param list
      */
-    public void setRelationshipList(List<Relationship> list) {
+    public void setRelationshipList() {
         relationshipList = list;
     }
 
@@ -97,7 +97,7 @@ public class SpdxElement extends ModelObject
      * 
      * @param list
      */
-    public void setAnnotationList(List<Annotation> list) {
+    public void setAnnotationList() {
         annotationList = list;
     }
 

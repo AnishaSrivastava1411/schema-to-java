@@ -59,7 +59,7 @@ public class PackageVerificationCode extends ModelObject
      * 
      * @param list
      */
-    public void setPackageVerificationCodeExcludedFileList(List<String> list) {
+    public void setPackageVerificationCodeExcludedFileList() {
         packageVerificationCodeExcludedFileList = list;
     }
 }

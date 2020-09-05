@@ -60,7 +60,7 @@ public class SpdxItem extends SpdxElement
      * 
      * @param list
      */
-    public void setAttributionTextList(List<String> list) {
+    public void setAttributionTextList() {
         attributionTextList = list;
     }
 
@@ -96,7 +96,7 @@ public class SpdxItem extends SpdxElement
      * 
      * @param list
      */
-    public void setLicenseInfoFromFileList(List<SimpleLicensingInfo> list) {
+    public void setLicenseInfoFromFileList() {
         licenseInfoFromFileList = list;
     }
 }

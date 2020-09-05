@@ -1,4 +1,4 @@
-ackage org.spdx.jibx;
+package org.spdx.jibx;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,9 +14,9 @@ import org.eclipse.jdt.core.dom.MethodInvocation;
 import org.eclipse.jdt.core.dom.Modifier;
 import org.eclipse.jdt.core.dom.Name;
 import org.eclipse.jdt.core.dom.ParameterizedType;
+
 import org.eclipse.jdt.core.dom.SimpleName;
 import org.eclipse.jdt.core.dom.Type;
-import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 import org.eclipse.jdt.core.dom.ReturnStatement;
 import org.eclipse.jdt.core.dom.SingleVariableDeclaration;
 import org.eclipse.jdt.core.dom.StringLiteral;
@@ -30,6 +30,7 @@ import org.jibx.schema.codegen.EnumerationClassHolder;
 import org.jibx.schema.codegen.IClassHolder;
 import org.jibx.schema.codegen.extend.ClassDecorator;
 import org.jibx.schema.codegen.extend.NameMatchDecoratorBase;
+
 
 public class SPDXClassDecorator extends NameMatchDecoratorBase implements ClassDecorator {
 	
@@ -87,6 +88,10 @@ public class SPDXClassDecorator extends NameMatchDecoratorBase implements ClassD
 				holder.addImport("java.util.Collection");
 				md.setReturnType2(newParameterizedType);
 			}
+			 
+	        if(methodDeclaration.parameters().toString().contains("List<")) {
+	        	methodDeclaration.parameters().clear();
+        	}
 		}
 	}
 

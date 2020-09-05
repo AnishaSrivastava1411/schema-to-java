@@ -107,7 +107,7 @@ public class _Package extends SpdxItem
      * 
      * @param list
      */
-    public void setChecksumList(List<Checksum> list) {
+    public void setChecksumList() {
         checksumList = list;
     }
 
@@ -161,7 +161,7 @@ public class _Package extends SpdxItem
      * 
      * @param list
      */
-    public void setExternalRefList(List<ExternalRef> list) {
+    public void setExternalRefList() {
         externalRefList = list;
     }
 
@@ -179,7 +179,7 @@ public class _Package extends SpdxItem
      * 
      * @param list
      */
-    public void setHasFileList(List<File> list) {
+    public void setHasFileList() {
         hasFileList = list;
     }
 
