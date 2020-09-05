@@ -88,10 +88,10 @@ public class SPDXClassDecorator extends NameMatchDecoratorBase implements ClassD
 				holder.addImport("java.util.Collection");
 				md.setReturnType2(newParameterizedType);
 			}
-			 
-	        if(methodDeclaration.parameters().toString().contains("List<")) {
-	        	methodDeclaration.parameters().clear();
-        	}
+			
+			if(methodDeclaration.parameters().toString().contains("List<")) {
+				methodDeclaration.parameters().clear();
+			}
 		}
 	}
 
