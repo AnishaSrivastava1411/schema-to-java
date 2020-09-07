@@ -46,7 +46,7 @@ public class File extends SpdxItem
      * 
      * @param list
      */
-    public void setArtifactOfList() {
+    public void setArtifactOfList(List<Project> list) {
         artifactOfList = list;
     }
 
@@ -64,7 +64,7 @@ public class File extends SpdxItem
      * 
      * @param list
      */
-    public void setFileTypeList() {
+    public void setFileTypeList(List<FileType> list) {
         fileTypeList = list;
     }
 
@@ -100,7 +100,7 @@ public class File extends SpdxItem
      * 
      * @param list
      */
-    public void setFileContributorList() {
+    public void setFileContributorList(List<String> list) {
         fileContributorList = list;
     }
 
@@ -118,7 +118,7 @@ public class File extends SpdxItem
      * 
      * @param list
      */
-    public void setLicenseInfoInFileList() {
+    public void setLicenseInfoInFileList(List<SimpleLicensingInfo> list) {
         licenseInfoInFileList = list;
     }
 
@@ -136,7 +136,7 @@ public class File extends SpdxItem
      * 
      * @param list
      */
-    public void setChecksumList() {
+    public void setChecksumList(List<Checksum> list) {
         checksumList = list;
     }
 
@@ -172,7 +172,7 @@ public class File extends SpdxItem
      * 
      * @param list
      */
-    public void setFileDependencyList() {
+    public void setFileDependencyList(List<File> list) {
         fileDependencyList = list;
     }
 }

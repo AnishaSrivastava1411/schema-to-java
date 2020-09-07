@@ -39,7 +39,7 @@ public class DisjunctiveLicenseSet extends AnyLicenseInfo
      * 
      * @param list
      */
-    public void setMemberList() {
+    public void setMemberList(List<AnyLicenseInfo> list) {
         memberList = list;
     }
 }

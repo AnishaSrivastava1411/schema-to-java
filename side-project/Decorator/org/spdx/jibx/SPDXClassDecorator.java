@@ -72,6 +72,7 @@ public class SPDXClassDecorator extends NameMatchDecoratorBase implements ClassD
 				fd.setType(newParameterizedType);
 			}
 		}
+		List<MethodDeclaration> methodsToBeDeleted = new ArrayList<MethodDeclaration>();
 		for(MethodDeclaration md: holder.getMethods()) {
 			Type newtype = ast.newSimpleType(ast.newName("Collection"));
 			if (md.getReturnType2().isParameterizedType()) {
@@ -89,11 +90,28 @@ public class SPDXClassDecorator extends NameMatchDecoratorBase implements ClassD
 				md.setReturnType2(newParameterizedType);
 			}
 			
+<<<<<<< Updated upstream
 			if(methodDeclaration.parameters().toString().contains("List<")) {
 				methodDeclaration.parameters().clear();
 			}
 		}
+=======
+			if(methodDeclaration.getName().toString().contains("set")  &&  methodDeclaration.parameters().toString().contains("List<") ) {    				 
+	    		methodsToBeDeleted.add(methodDeclaration);          	  
+    	    }
+    	}
+		
+    	for(MethodDeclaration methodsPresent:holder.getMethods()) {
+    		for(MethodDeclaration MethodsToBeDeleted: methodsToBeDeleted) {
+    			if(methodsPresent.equals(MethodsToBeDeleted)) {
+    				methodsPresent.delete();
+				}
+    		}
+    	}
+>>>>>>> Stashed changes
 	}
+	
+
 
 
 	

@@ -79,7 +79,7 @@ public class CreationInfo extends ModelObject
      * 
      * @param list
      */
-    public void setCreatorList() {
+    public void setCreatorList(List<String> list) {
         creatorList = list;
     }
 

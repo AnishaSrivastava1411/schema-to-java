@@ -62,7 +62,7 @@ public class LicenseException extends ModelObject
      * 
      * @param list
      */
-    public void setSeeAlsoList() {
+    public void setSeeAlsoList(List<String> list) {
         seeAlsoList = list;
     }
 

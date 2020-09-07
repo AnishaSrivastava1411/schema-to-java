@@ -42,7 +42,7 @@ public class SimpleLicensingInfo extends AnyLicenseInfo
      * 
      * @param list
      */
-    public void setSeeAlsoList() {
+    public void setSeeAlsoList(List<String> list) {
         seeAlsoList = list;
     }
 

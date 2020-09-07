@@ -45,7 +45,7 @@ public class SpdxDocument extends SpdxElement
      * 
      * @param list
      */
-    public void setReviewedList() {
+    public void setReviewedList(List<Review> list) {
         reviewedList = list;
     }
 
@@ -63,7 +63,8 @@ public class SpdxDocument extends SpdxElement
      * 
      * @param list
      */
-    public void setHasExtractedLicensingInfoList() {
+    public void setHasExtractedLicensingInfoList(
+            List<ExtractedLicensingInfo> list) {
         hasExtractedLicensingInfoList = list;
     }
 
@@ -117,7 +118,7 @@ public class SpdxDocument extends SpdxElement
      * 
      * @param list
      */
-    public void setDescribesPackageList() {
+    public void setDescribesPackageList(List<_Package> list) {
         describesPackageList = list;
     }
 
@@ -135,7 +136,7 @@ public class SpdxDocument extends SpdxElement
      * 
      * @param list
      */
-    public void setExternalDocumentRefList() {
+    public void setExternalDocumentRefList(List<ExternalDocumentRef> list) {
         externalDocumentRefList = list;
     }
 
