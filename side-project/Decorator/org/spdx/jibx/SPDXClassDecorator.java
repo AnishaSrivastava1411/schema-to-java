@@ -89,31 +89,20 @@ public class SPDXClassDecorator extends NameMatchDecoratorBase implements ClassD
 				holder.addImport("java.util.Collection");
 				md.setReturnType2(newParameterizedType);
 			}
-			
-<<<<<<< Updated upstream
-			if(methodDeclaration.parameters().toString().contains("List<")) {
-				methodDeclaration.parameters().clear();
+
+			if(methodDeclaration.getName().toString().contains("set")  &&  methodDeclaration.parameters().toString().contains("List<") ) {    
+				methodsToBeDeleted.add(methodDeclaration);          	  
 			}
 		}
-=======
-			if(methodDeclaration.getName().toString().contains("set")  &&  methodDeclaration.parameters().toString().contains("List<") ) {    				 
-	    		methodsToBeDeleted.add(methodDeclaration);          	  
-    	    }
-    	}
 		
-    	for(MethodDeclaration methodsPresent:holder.getMethods()) {
-    		for(MethodDeclaration MethodsToBeDeleted: methodsToBeDeleted) {
-    			if(methodsPresent.equals(MethodsToBeDeleted)) {
-    				methodsPresent.delete();
+		for(MethodDeclaration methodsPresent:holder.getMethods()) {
+			for(MethodDeclaration MethodsToBeDeleted: methodsToBeDeleted) {
+				if(methodsPresent.equals(MethodsToBeDeleted)) {
+					methodsPresent.delete();
 				}
-    		}
-    	}
->>>>>>> Stashed changes
+			}
+		}
 	}
-	
-
-
-
 	
 	public void start(IClassHolder holder) {
 		AST ast = ClassHolderHelper.getAST((ClassHolder)holder);
