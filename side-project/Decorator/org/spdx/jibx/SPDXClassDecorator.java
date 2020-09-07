@@ -52,34 +52,34 @@ public class SPDXClassDecorator extends NameMatchDecoratorBase implements ClassD
 		m_Interface = name;
 	}
 	
-	
 	public void finish(ElementBase binding, IClassHolder holder ) { 
+		
 		AST ast = ClassHolderHelper.getAST((ClassHolder)holder); 
-		Type oldType = ast.newSimpleType(ast.newName("List"));
-		for(FieldDeclaration fd: holder.getFields()) {  
-			Type newType = ast.newSimpleType(ast.newName("Collection"));
-			if (fd.getType().isParameterizedType() ) {
-				ParameterizedType newParameterizedType = ast.newParameterizedType(newType);
-				ParameterizedType old = (ParameterizedType) fd.getType();
+		Type listType = ast.newSimpleType(ast.newName("List"));
+		for(FieldDeclaration fieldDeclaration: holder.getFields()) {   
+			Type collectionType = ast.newSimpleType(ast.newName("Collection"));
+			if (fieldDeclaration.getType().isParameterizedType() ) {
+				ParameterizedType newParameterizedType = ast.newParameterizedType(collectionType);
+				ParameterizedType old = (ParameterizedType) fieldDeclaration.getType();
 				List<ASTNode> typeArgument = new ArrayList<>();
 				for (Object type : old.typeArguments()) {
 					typeArgument.add(((ASTNode) type));
 				}
 				for (ASTNode type : typeArgument) {
 					type.delete();
-					newParameterizedType.typeArguments().add(type);
+					newParameterizedType.typeArguments().add(type);	
 				}
-				fd.setType(newParameterizedType);
+				fieldDeclaration.setType(newParameterizedType);
 			}
 		}
 		List<MethodDeclaration> methodsToBeDeleted = new ArrayList<MethodDeclaration>();
-		for(MethodDeclaration md: holder.getMethods()) {
-			Type newtype = ast.newSimpleType(ast.newName("Collection"));
-			if (md.getReturnType2().isParameterizedType()) {
-				ParameterizedType newParameterizedType = ast.newParameterizedType(newtype);
-				ParameterizedType old = (ParameterizedType) md.getReturnType2();
+		for(MethodDeclaration methodDeclaration: holder.getMethods()) {
+			Type collectiontype = ast.newSimpleType(ast.newName("Collection"));
+			if(methodDeclaration.getReturnType2().isParameterizedType() ) {
+				ParameterizedType newParameterizedType = ast.newParameterizedType(collectiontype);
+				ParameterizedType old = (ParameterizedType) methodDeclaration.getReturnType2();
 				List<ASTNode> typeArgument = new ArrayList<>();
-				for (Object obj : old.typeArguments()) {    	    		
+				for (Object obj : old.typeArguments()) {
 					typeArgument.add(((ASTNode) obj));
 				}
 				for (ASTNode obj : typeArgument) {
@@ -87,22 +87,21 @@ public class SPDXClassDecorator extends NameMatchDecoratorBase implements ClassD
 					newParameterizedType.typeArguments().add(obj);
 				}
 				holder.addImport("java.util.Collection");
-				md.setReturnType2(newParameterizedType);
-			}
-
-			if(methodDeclaration.getName().toString().contains("set")  &&  methodDeclaration.parameters().toString().contains("List<") ) {    
-				methodsToBeDeleted.add(methodDeclaration);          	  
+				methodDeclaration.setReturnType2(newParameterizedType);
+			}	
+			if(methodDeclaration.getName().toString().contains("set")  &&  methodDeclaration.parameters().toString().contains("List<") ) {   
+				methodsToBeDeleted.add(methodDeclaration);        
 			}
 		}
-		
 		for(MethodDeclaration methodsPresent:holder.getMethods()) {
-			for(MethodDeclaration MethodsToBeDeleted: methodsToBeDeleted) {
-				if(methodsPresent.equals(MethodsToBeDeleted)) {
+			for(MethodDeclaration methodsToDeleted: methodsToBeDeleted) {
+				if(methodsPresent.equals(methodsToDeleted)) {
 					methodsPresent.delete();
 				}
 			}
 		}
 	}
+	
 	
 	public void start(IClassHolder holder) {
 		AST ast = ClassHolderHelper.getAST((ClassHolder)holder);
