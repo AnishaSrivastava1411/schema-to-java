@@ -72,7 +72,10 @@ public class SPDXClassDecorator extends NameMatchDecoratorBase implements ClassD
 				fieldDeclaration.setType(newParameterizedType);
 			}
 		}
+
+		   
 		List<MethodDeclaration> methodsToBeDeleted = new ArrayList<MethodDeclaration>();
+
 		for(MethodDeclaration methodDeclaration: holder.getMethods()) {
 			Type collectiontype = ast.newSimpleType(ast.newName("Collection"));
 			if(methodDeclaration.getReturnType2().isParameterizedType() ) {
@@ -93,15 +96,15 @@ public class SPDXClassDecorator extends NameMatchDecoratorBase implements ClassD
 				methodsToBeDeleted.add(methodDeclaration);        
 			}
 		}
-		for(MethodDeclaration methodsPresent:holder.getMethods()) {
-			for(MethodDeclaration methodsToDeleted: methodsToBeDeleted) {
-				if(methodsPresent.equals(methodsToDeleted)) {
-					methodsPresent.delete();
-				}
+		int i=0;
+		for(MethodDeclaration methodsToDelete: methodsToBeDeleted) {
+			if(holder.getMethods().equals(methodsToDelete)) {
+				MethodDeclaration[] md = holder.getMethods();
+				md[i++].delete();
 			}
 		}
 	}
-	
+
 	
 	public void start(IClassHolder holder) {
 		AST ast = ClassHolderHelper.getAST((ClassHolder)holder);
